@@ -2,7 +2,9 @@ import React from "react";
 
 const BookRow = props => {
   const book = props.book;
-  const authorName = props.authorName;
+  const authorName = book.authors.map(author => (
+    <p key={author.id}>{author.name}</p>
+  ));
   return (
     <tr>
       <td>{book.title}</td>

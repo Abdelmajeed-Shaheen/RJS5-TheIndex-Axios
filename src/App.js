@@ -15,10 +15,10 @@ class App extends Component {
   };
   getauthors = async () => {
     try {
-      const response = await axios.get(
+      const res = await axios.get(
         "https://the-index-api.herokuapp.com/api/authors/"
       );
-      const authors = response.data;
+      const authors = res.data;
       this.setState({
         authors: authors,
         loading: false
@@ -34,10 +34,10 @@ class App extends Component {
   selectAuthor = async authorID => {
     this.setState({ loading: true });
     try {
-      const response = await axios.get(
+      const res = await axios.get(
         `https://the-index-api.herokuapp.com/api/authors/${authorID}/`
       );
-      const author = response.data;
+      const author = res.data;
       this.setState({
         currentAuthor: author,
         loading: false
